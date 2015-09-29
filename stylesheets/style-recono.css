@@ -1,3 +1,5 @@
+@charset "UTF-8";
+/* CSS Document */
 /*  ===================================
     GLOBAL
     =================================== */
@@ -56,9 +58,21 @@ em, i {
   font-style: italic;
 }
 
-/*  ===================================
-    END GLOBAL
-    =================================== */
+.button {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #4a91e2;
+  letter-spacing: 1px;
+}
+
+.button:hover {
+  background-color: #2466B3;
+}
+
 /*  =========================================
     HELPER CLASSES
     ========================================= */
@@ -84,30 +98,11 @@ em, i {
   clear: both;
 }
 
-/*  =========================================
-    END HELPER CLASSES
-    ========================================= */
-/*  ===================================
-    COMMON
-    =================================== */
-.button {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  border-radius: 3px;
-  font-weight: bold;
-  color: #ffffff;
-  background-color: #4a91e2;
-  letter-spacing: 1px;
+.img-circle {
+  max-height: 100px;
+  border-radius: 50%;
 }
 
-.button:hover {
-  background-color: #2466B3;
-}
-
-/*  ===================================
-    END COMMON
-    =================================== */
 /*  ===================================
     HEADER
     =================================== */
@@ -247,9 +242,6 @@ header #title-header .button {
 }
 
 /*  ===================================
-    END HEADER
-    =================================== */
-/*  ===================================
     MAIN CONTENTS
     =================================== */
 #contents {
@@ -273,6 +265,37 @@ header #title-header .button {
   font-size: 13px;
   text-align: left;
 }
+#contents .sideBox {
+  padding: 0 0 15px;
+  margin: 0 auto 30px;
+  border: 1px solid #DDD;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  text-align: left;
+  background: rgba(155,219,181,1);
+}
+
+#contents .sideBox .freeformSection {
+  padding: 15px;
+}
+#contents .sideBox .freeformSection header{
+  padding: 5px;
+  font-size: .5em;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: rgba(74,145,226,1);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+#contents .sideBox .freeformSection img{
+  display: block;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #contents .recoBox {
   padding: 0 0 15px;
   margin: 0 auto 30px;
@@ -283,48 +306,9 @@ header #title-header .button {
   border-radius: 4px;
   text-align: left;
   background: #FFF;
-  /*  -----------------------------------
-      QUESTIONS
-      ----------------------------------- */
-  /*  -----------------------------------
-      END QUESTIONS
-      ----------------------------------- */
-  /*  -----------------------------------
-      NORMAL RECO BOX
-      ----------------------------------- */
-  /*  -------------------
-      Comment Section: Yellow Comment
-      ------------------- */
-  /*  -------------------
-      Media Section: pictures, videos, maps, iframes, etc.
-      ------------------- */
-  /*  -------------------
-      FreeForm Section
-      ------------------- */
-  /*  -------------------
-      Titles Section: Heading and View Button
-      ------------------- */
-  /*  -------------------
-      Price Section
-      ------------------- */
-  /*  -------------------
-      Description Section
-      ------------------- */
-  /*  -------------------
-      Source Section: Where the source is displayed
-      ------------------- */
-  /*  -----------------------------------
-      END NORMAL RECO BOX
-      ----------------------------------- */
 }
 #contents .recoBox form {
   padding: 15px;
-  /*  -------------------
-      Checkboxes
-      ------------------- */
-  /*  -------------------
-      End Checkboxes
-      ------------------- */
 }
 #contents .recoBox form h3 {
   font-size: 1em;
@@ -506,9 +490,8 @@ header #title-header .button {
   margin: 0;
 }
 #contents .recoBox .freeformSection {
-  /*padding:15px 0;*/
+  padding: 10px;
 }
-
 #contents .recoBox .freeformSection iframe {
   overflow: visible;
 }
@@ -582,8 +565,8 @@ header #title-header .button {
 }
 
 /*  ===================================
-    MAIN CONTENTS
-    =================================== */
+    FOOTER
+  =================================== */
 footer {
   width: 100%;
   background: #DDD;
@@ -653,4 +636,53 @@ footer .footerContainer a.app-store {
   display: block;
   margin: auto;
   text-indent: -9999px;
+}
+
+
+/*  ===================================
+    Media Queries
+    =================================== */
+@media only screen and (max-device-width: 667px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    /* Prevent font scaling in landscape while allowing user zoom */
+  }
+
+  header #title-header {
+    width: 100%;
+  }
+  header #title-header h1 {
+    font-size: 20px;
+    padding: 0 10px;
+  }
+  header #title-header .button {
+    display: inline-block;
+  }
+
+  #fixed-title-header {
+    width: 100%;
+  }
+
+  #contents #introMessage {
+    width: 92%;
+    padding: 10px 2%;
+  }
+  #contents .recoBox {
+    width: 96%;
+    margin-bottom: 20px;
+  }
+  #contents .recoBox form .button {
+    width: 100%;
+    padding: 12px 20px;
+  }
+
+  footer .footerContainer {
+    width: 96%;
+  }
+}
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width: 321px) {
+  #contents .recoBox form .button {
+    width: auto;
+  }
 }
