@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="121px" height="122px" viewBox="0 0 121 122" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12002) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-send</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="swell-developers-website-01" sketch:type="MSArtboardGroup" transform="translate(-659.000000, -721.000000)">
+            <g id="icon-text" sketch:type="MSLayerGroup" transform="translate(659.000000, 721.400000)">
+                <g id="icon-send" transform="translate(0.990099, 0.983498)" sketch:type="MSShapeGroup">
+                    <path d="M0.158283828,59.6850165 C0.158283828,27.0217822 26.6369637,0.54310231 59.300198,0.54310231 C91.9634323,0.54310231 118.442112,27.0217822 118.442112,59.6850165 C118.442112,92.3482508 91.9634323,118.826931 59.300198,118.826931 C26.6369637,118.826931 0.158283828,92.3482508 0.158283828,59.6850165 L0.158283828,59.6850165 Z" id="Stroke-5" stroke="#80D766" stroke-width="2"></path>
+                    <path d="M57.4885254,95.8682508 L47.1895755,70.1208026 L21.4419802,59.8217056 L83.2359736,34.0742574 L57.4885254,95.8682508 L57.4885254,95.8682508 Z M27.6690469,59.7772749 L49.0004947,68.3098835 L57.5331032,89.6413312 L78.864551,38.4459743 L27.6690469,59.7772749 L27.6690469,59.7772749 Z" id="Shape" fill="#80D766"></path>
+                    <rect id="Rectangle-path" fill="#80D766" x="63.3954522" y="29.4344879" width="2.35392222" height="46.6053061"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

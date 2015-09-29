@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/* CSS Document */
+@media only screen and (max-device-width: 667px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    /* Prevent font scaling in landscape while allowing user zoom */
+  }
+
+  header #title-header {
+    width: 100%;
+  }
+  header #title-header h1 {
+    font-size: 20px;
+    padding: 0 10px;
+  }
+  header #title-header .button {
+    display: inline-block;
+  }
+
+  #fixed-title-header {
+    width: 100%;
+  }
+
+  #contents #introMessage {
+    width: 92%;
+    padding: 10px 2%;
+  }
+  #contents .recoBox {
+    width: 96%;
+    margin-bottom: 20px;
+  }
+  #contents .recoBox form .button {
+    width: 100%;
+    padding: 12px 20px;
+  }
+
+  footer .footerContainer {
+    width: 96%;
+  }
+}
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width: 321px) {
+  #contents .recoBox form .button {
+    width: auto;
+  }
+}

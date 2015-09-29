@@ -1,0 +1,183 @@
+/* Simple Labs styling */
+/* ---------- Base ---------- */
+body, input, textarea, label, pre {
+    font-family: "open-sans", sans-serif;
+}
+p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 1.4;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+}
+img {
+    margin: 10px 0;
+}
+a,
+a:hover,
+a:focus,
+a:active {
+    color: #666688;
+    text-decoration: none;
+}
+a:hover,
+a:focus,
+a:active {
+    text-decoration: underline;
+}
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+ul.indent,
+ol.indent {
+    padding-left: 40px;
+}
+ul.buffer,
+ol.buffer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+li {
+    list-style-type: none;
+}
+ul.bullet {
+    padding-left: 40px;
+}
+ul.bullet li {
+    list-style-type: disc;
+}
+ol.a li {
+    list-style-type: lower-alpha;
+}
+ol.i li {
+    list-style-type: lower-roman;
+}
+.container {
+    max-width: 960px;
+}
+
+/* ---------- Site ---------- */
+#logo {
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 30px auto;
+    background: url("/img/Swell-Circle.png") top left no-repeat;
+    background-size: cover;
+    text-indent: -9999px;
+}
+#banner {
+    color: #fff;
+    min-height: 300px;
+    position: relative;
+    background: url("../img/bg_sun.jpg") center center no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#nav {
+    font-family: "brandon-grotesque", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 20px;
+}
+#nav li {
+    display: inline-block;
+    margin: 0 15px;
+    position: relative;
+}
+#nav a {
+    color: #fff;
+}
+#nav a.current:after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    margin-left: -13px;
+    width: 26px;
+    height: 12px;
+    background: url("../img/nav_arrow_down.png") center center no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#nav a.current:hover {
+    text-decoration: none;
+}
+.banner-copy {
+    text-align: center;
+    max-width: 720px;
+    margin: 70px auto;
+    font-size: 24px;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+}
+
+#home {
+    background: url("/img/bg_sun.jpg") center center no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+#home #logo {
+    background-position: 0 -198px;
+    margin-top: 100px;
+}
+#home #banner {
+    background: transparent;
+}
+#home #banner .banner-copy {
+    text-align: center;
+    max-width: 640px;
+    margin: 50px auto;
+    font-size: 24px;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+}
+
+
+#content {
+    padding: 0 0 100px;
+}
+.intro-text-container {
+    margin-top: 50px;
+}
+.job-listing {
+    margin-top: 50px;
+}
+.job-apply {
+    margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+    #nav li {
+        margin: 0 30px;
+    }
+    #banner {
+        background-attachment: fixed;
+    }
+    #home {
+        background-attachment: fixed;
+    }
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}

@@ -1,0 +1,495 @@
+@media only screen and (min-width: 320px) and (max-width: 800px) {
+	header {
+		padding-left: 8%;
+	}
+	header .home {
+		font-size: 30px;
+		font-weight: 500;
+		float: left;
+		background: url("/img/landing/icon_swell-logo.svg") no-repeat center center;
+		height: 39px;
+		width: 80px;
+		text-indent: -9999px;
+		margin: 0 0 0 -30px;
+		cursor: pointer;
+	}
+
+	header ul li.about-us {
+		display: none;
+	}
+
+	.hero-slide0, .hero-slide1, .hero-slide2 {
+	    -webkit-background-size: auto 100%;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+	    background-size: auto 100%;
+	    background-repeat: no-repeat;
+	}
+
+	/* STICKY NAV */
+	div.menu-wrapper {
+	    height: 100px;
+	}
+	header.site-header {
+	    margin-bottom: 0;
+	    padding: 0.5em 1em;
+	}
+	header.site-header nav ul {
+	    padding: 2em 0 0 0;
+	    display: inline;
+	    margin: 0 .5em !important;
+	}
+
+	header.site-header nav ul li {
+		margin: 0 0.5em 2em 0.5em !important;
+	}
+
+	header.site-header nav ul li a {
+	    font-size: 12px;
+	    line-height: 18px;
+	}
+
+	header.site-header nav ul li.app-store:before {
+		text-align: center;
+		display: inline-block;
+		margin: 0 auto 1em auto;
+	}
+	header.sticky-nav nav ul {
+	    margin: 0 0 -1em 0;
+	    padding: 0 1.5em;
+	}
+
+	header.sticky-nav nav ul li {
+	    display: inline;
+	    margin: 0 0.5em !important;
+	    line-height: 18px;
+	    text-align: center;
+	}
+
+	header.sticky-nav nav ul li a {
+	    font-size: 12px;
+	    line-height: 24px;
+	}
+
+	header.sticky-nav nav ul li.app-store:before {
+		text-align: center;
+		display: inline-block;
+		margin: 0 auto 1em auto;
+	}
+
+	/*  JUMPING LINK CSS FIX  */
+	#content div#how-it-works:before, #content div#section-personas:before, #content div#section-testimonies:before, #content div#give-it-a-try:before {
+	    display: block; 
+	    content: " "; 
+	    margin-top: -155px; 
+	    height: 155px; 
+	    visibility: hidden; 
+	}
+
+	#main {
+		width: 100%;
+		height: 400px;
+		top: 0;
+		left: 0;
+		background-color: #000;
+		background-position: 0 0;
+	    -webkit-background-size: 100% auto;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+	    background-size: 100% auto;
+	}
+	#title h1 {
+		font-family: "Montserrat", Helvetica, Arial, sans-serif;
+		font-size: 34px;
+		line-height: 47px;
+		width: 100%;
+		top: 420px;
+		color: #333333;
+		text-align: center;
+		margin: 0 auto;
+		padding: 0 2em;
+		color: #00CA96;
+	}
+	#title h2 {
+		color: #333333;
+		font-size: 16px;
+		line-height: 30px;
+		width: 80%;
+		top: 520px;
+		text-align: center;
+	}
+	#title img {
+		width: 205px !important;
+		display: block;
+		position: absolute;
+		bottom: -12px;
+		left: 30px;
+	}
+	.mc-embed-signup {
+		margin: 0;
+		width: 100%;
+		top: 300px;
+		display: none;
+	}
+	form {
+		margin: 1.5em 0 0 10.5%;
+	}
+	form input {
+		margin: 0 0.5em 0.5em 0;
+		width: 90%;
+		text-align: center;
+	}
+	form button {
+		width: 90%;
+		font-family: "Open Sans", Helvetica, Arial, sans-serif;
+		font-weight: 100;
+		color: #29ABE2;
+		padding: 0.5em 1em;
+		font-size: 20px;
+		background: none;
+		border: 1px solid #29ABE2;
+		-webkit-border-radius: 3px;
+		border-radius: 3px;
+	}
+	#content {
+		width: 100%;
+		position: absolute;
+		top: 560px;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+		padding: 0.5em 1em 2em 1em !important;
+		text-align: center;
+	}
+	#content div {
+		margin: 0 auto;
+		padding: 0 0 1em 0;
+		width: 100% !important;
+	}
+	#content div h2 {
+		font-size: 17px;
+		line-height: 20px;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		margin: 2em auto 1em auto;
+		width: 100%;
+		display: block;
+		clear: both;
+	}
+	#content div a {
+		text-decoration: none;
+	}
+	#content div p {
+		color: #666;
+		font-weight: 100;
+		font-size: 28px;
+		line-height: 33px;
+		margin-bottom: 1em;
+	}
+
+	/*  Give it a Try!  */
+	div.task-try {
+		margin-bottom: 3em !important;
+	}
+	div.task-try form {
+		margin-left: 0;
+	}
+
+	div.task-try h2 {
+		margin: 1em 0 0 0 !important;
+	}
+
+	div.task-input {
+		padding: 1em !important;
+		height: 460px;
+	}
+	div.task-input h3 {
+		font-size: 22px;
+		margin: 1em 0;
+	}
+
+	div.task-input input {
+		font-size: 18px;
+	}
+	/*  PERSONAS  */
+	#content div.personas {
+		padding: 0;
+		margin-top: 0;
+	}
+	#content div.personas p {
+	    font-size: 16px;
+	    line-height: 28px;
+	    padding: 0;
+	}
+	#content div.personas h3 {
+	    font-size: 14px;
+	    margin-top: 1em;
+	}
+
+	#content div.personas ul {
+	    margin-bottom: 2em;
+	    overflow: hidden;
+	}
+
+	#content div.personas ul li {
+	    display: block;
+	    width: 100%;
+	}
+
+	#content div.personas ul li h4 {
+	    font-size: 17px;
+	    left: 0;
+	    text-align: center;
+	    width: 100%;
+	    margin: 0 auto;
+	}
+
+	/*  Image List  */
+	#content div .image-list {
+		padding-left: 0;
+		}
+	#content div .image-list li {
+		display: block;
+		width: 100%;
+		clear: both;
+		overflow: hidden;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	#content div .image-list li img {
+		width: 70%;
+		float: none;
+		margin: 0 auto;
+		display: block;
+		clear: both;
+	}
+	#content div .image-list li img.right {
+		float: none;
+		display: block;
+		margin: 0 auto;
+	}
+	#content div .image-list li img.image-step3 {
+		display: block;
+	}
+	#content div .image-list li h3 {
+		color: #B3B3B3;
+		font-size: 18px;
+		font-weight: 500;
+		text-align: left;
+		margin: 0.5em 0 1em 0;
+		padding: 0.5em 0.9em;
+		-webkit-border-radius: 30px;
+		border-radius: 30px;
+		border: 1px solid #B3B3B3;
+		display: inline-block;
+	}
+	#content div .image-list li h4 {
+		font-family: "Montserrat", Helvetica, Arial, sans-serif;
+		color: #333333;
+		font-size: 22px;
+		font-weight: 500;
+		text-align: center;
+		margin: 0 0 0.4em 0;
+		padding: 0;
+	}
+	#content div .image-list li p {
+		font-family: "Open Sans", Helvetica, Arial, sans-serif;
+		text-align: center;
+		font-size: 17px;
+		line-height: 24px;
+		font-weight: 100;
+		color: #4D4D4D;
+	}
+	#content div .image-list li #preview-container {
+	    display: none;
+	}
+	#content div .image-list li #preview-container .reco-container {
+	    display: none;
+	}
+	#content div .image-list li #preview-container .tooltip img {
+	    display: none;
+	}
+
+	#content div .image-list li #preview-container .reco-container img {
+	    display: none;
+	}
+	#content div .image-list #navbar-container {
+	    display: none;
+	}
+
+	#content div .image-list li #navbar {
+		margin: 1em 0 0 3.8em;
+		width: 200px;
+		vertical-align: middle;
+	}
+	ul.testimonies {
+		padding-left: 0;
+	}
+	ul.testimonies li {
+		margin-bottom: 1em;
+		overflow: auto;
+	}
+	div ul.testimonies li img {
+		float: none;
+		width: 40%;
+		margin: 1em 0;
+	}
+	ul.testimonies li blockquote {
+		font-size: 20px;
+		line-height: 26px;
+		text-align: center;
+	}
+	ul.testimonies li p {
+		text-align: center;
+		font-size: 17px !important;
+	}
+	ul.testimonies li.right blockquote,ul.testimonies li.right p {
+		text-align: center;
+	}
+	div ul.testimonies li.right img {
+		float: none;
+		margin: 1em 0;
+	}
+	#slides-easier {
+		height: 200px;
+	}
+	/* FOOTER */
+	footer {
+		padding: 2.5em 1em;
+		margin: 0 -0.8em;
+	}
+	footer div.download-button a img {
+	    width: 200px;
+	    margin: 0 auto 2em auto;
+	}
+	footer input {
+		text-align: center;
+		margin-right: 0;
+	}
+	footer button {
+		margin-bottom: 1.5em;
+	}
+
+	footer ul {
+		margin-top: 0;
+		margin-bottom: 3em;
+		padding: 0 0.5em;
+	}
+
+	footer ul li {
+		font-size: 14px;
+	}
+	footer h3 {
+		width: 90%;
+		font-size: 17px;
+		margin: 0 auto;
+	}
+}
+
+/* Tablet ----------- */
+@media only screen and (min-width: 800px) and (max-width : 1100px) {
+	.hero-slide0, .hero-slide1, .hero-slide2 {
+	    -webkit-background-size: auto 100%;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+	    background-size: auto 100%;
+	    background-repeat: no-repeat;
+	}
+
+	#title h1 {
+		font-size: 52px;
+		line-height: 56px;
+	}
+	#title h2 {
+		width: 38%;
+	}
+	#content div {
+		width: 100%;
+	}
+	#slides-easier {
+		height: 340px;
+	}
+	footer form div.mc-field-group {
+		width: 100%;
+		margin: 0 auto;
+	}
+	form input {
+		text-align: center;
+	}
+	form button {
+		margin-top: 0.5em;
+		display: block;
+		width: 330px;
+	}
+	footer form input {
+		text-align: center;
+	}
+	footer form button {
+		display: inline-block;
+		margin-top: 0.2em;
+	}
+	footer h3 {
+		width: 90%;
+		font-size: 18px;
+		margin: 1em auto 0.5em auto;
+	}
+}
+
+@media only screen and (min-width: 1200px) and (max-width : 1540px) {
+	#slides-easier {
+		width: 0%;
+		height: 560px;
+	}
+
+	#title h1 {
+		width: ;
+	}
+
+	#title h2 {
+		top: 310px;
+	}
+
+	div.task-try {
+	    background: url("../img/landing/swell-experts-characters.png") 50% 70% no-repeat;
+	    -webkit-background-size: 80%;
+	    -o-background-size: 80%;
+	    background-size: 80%;
+	}
+
+	div#section-testimonies {
+	    width: 50% !important;
+	}
+}
+
+@media only screen and (min-width: 1541px) and (max-width : 4000px) {
+	header .home {
+		margin-left: 0.3em;
+	}
+	#title h2 {
+		top: 250px;
+	}
+
+	.mc-embed-signup {
+		margin-left: 8.7%;
+	}
+
+	#content div {
+	    width: 60% !important;
+	}
+
+	div#how-it-works {
+	    width: 47% !important;
+	}
+
+	div.task-try {
+	    background: url("../img/landing/swell-experts-characters.png") 50% 70% no-repeat;
+	    -webkit-background-size: 100%;
+	    -o-background-size: 100%;
+	    background-size: 100%;
+	}
+
+	div#section-testimonies {
+	    width: 50% !important;
+	}
+}

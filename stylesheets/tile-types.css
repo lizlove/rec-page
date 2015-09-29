@@ -1,0 +1,88 @@
+/* TILE TYPES CSS */
+div.preview-container {
+
+}
+
+div.reco-tile {
+  -webkit-border-radius: 3px;
+      border-radius: 3px;
+  border: 1px solid #CACACA;
+  padding: 1em;
+  margin-bottom: 1em;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.14);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.14);
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.14);
+}
+
+/*div.reco-tile div.image-container {
+  display: block;
+  width: 300px;
+  height: 200px;
+  max-height: 200px;
+  overflow: hidden;
+  margin: -1em;
+}
+
+div.reco-tile div.image-container img {
+  width: 100%;
+}*/
+
+div.reco-tile img {
+  display: block;
+  width: 100%;
+  margin: 0.5em auto;
+}
+
+div.reco-tile div.image-container {
+  display: block;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;  
+}
+
+div.tile-standard img {
+  
+}
+
+div.reco-tile img.rating {
+  margin: 0.5em 0;
+  width: 100px;
+}
+
+div.reco-tile h1 {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #383E47;
+  margin-top: 1em;
+  max-height: 3em;
+  overflow: hidden;
+}
+
+div.reco-tile p {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 100;
+  color: #58585B;
+  max-height: 6.3em;
+  margin-bottom: 1em;
+  overflow: hidden;
+  clear: both;
+}
+
+div.reco-tile button {
+  text-transform: uppercase;
+  width: 100%;
+  color: #FFF;
+  border: none;
+  padding: 1em;
+  background-color: #4A90E2;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
+  clear: both;
+}
+
+
+
+/* Image */

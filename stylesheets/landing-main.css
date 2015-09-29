@@ -1,0 +1,767 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+#container {
+    width: 100%;
+}
+/*  NAVIGATION  */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 7%;
+    z-index: 10;
+}
+header.clearHeader {
+    background: rgba(255, 255, 255, 0);
+}
+
+header li {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    float: right;
+    margin: 20px 25px;
+    display: inline-block;
+}
+header li a {
+    color: #FFF;
+    text-decoration: none;
+}
+header li a:hover {
+    color: #E6E6E6;
+}
+header .home {
+    font-size: 32px;
+    font-weight: 500;
+    float: left;
+    background: url("../img/landing/icon_swell-logo.svg") no-repeat center center;
+    -webkit-background-size: 90%;
+    -o-background-size: 90%;
+    background-size: 90%;
+    height: 54px;
+    width: 110px;
+    text-indent: -9999px;
+    margin: 0px 100px 0px 0;
+    cursor: pointer;
+}
+header .twitter {
+    background: url("../img/landing/icon_twitter-white.svg") no-repeat center center;
+    height: 30px;
+    width: 30px;
+    text-indent: -9999px;
+    margin: 0px 0px 0px 25px;
+    cursor: pointer;
+}
+header .facebook {
+    background: url("../img/landing/icon_facebook-white.svg") no-repeat center center;
+    height: 28px;
+    width: 28px;
+    text-indent: -9999px;
+    margin: 0px 0px 0px 25px;
+    cursor: pointer;
+}
+
+header ul li.about-us {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #FFF;
+    margin: 5px 10px 15px 20px;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.31);
+}
+
+/* STICKY NAV */
+div.menu-wrapper {
+    height: 100px;
+    width: 100%;
+}
+header.site-header {
+    position: relative;
+    color: #000;
+    padding: 1em 0;
+    margin: 0 0 1em 0 ;
+}
+
+header.site-header nav ul {
+    padding-left: 0;
+    margin: 0.5em 0;  
+}
+
+header.site-header nav ul li {
+    display: inline;
+    margin: 0 1.5em;
+    float: none;
+}
+
+header.site-header nav ul li a {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #29ABE2;
+    letter-spacing: 1px;
+    line-height: 42px;
+    vertical-align: top;
+    white-space: nowrap;
+    border-bottom: none !important;
+}
+
+header.site-header li a:hover {
+    color: #0071BC;
+    border-bottom: 2px solid #0071BC !important;
+}
+
+header.site-header nav ul li.app-store:before {
+    background: url("../img/personas/download-app-store.jpg") no-repeat center center;
+    -webkit-background-size: 120px 42px;
+         -o-background-size: 120px 42px;
+            background-size: 120px 42px;
+    content: "";
+    display: inline-block;
+    width: 120px;
+    height: 42px;
+    margin: 0;
+    border-bottom: none !important;
+}
+
+header.sticky-nav {
+    position: fixed;
+    width: 100%;
+    padding: 1em 0;
+    margin: 0 0 1em 0;
+    top: 0;
+    left: 0;
+    clear: both;
+    background-color: #FFF;
+    -webkit-box-shadow: 0px 0px 1px 2px rgba(68,68,68,0.3);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:    0px 0px 1px 2px rgba(68,68,68,0.3);  /* Firefox 3.5 - 3.6 */
+            box-shadow: 0px 0px 1px 2px rgba(68,68,68,0.3);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+header.sticky-nav nav ul {
+    padding-left: 0;
+    margin: 0.5em 0;
+    padding: 0 7em;
+}
+
+header.sticky-nav nav ul li {
+    display: inline;
+    margin: 0 1.5em;
+    float: none;
+}
+
+header.sticky-nav nav ul li a {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #29ABE2;
+    letter-spacing: 1px;
+    line-height: 42px;
+    vertical-align: top;
+    white-space: nowrap;
+    border-bottom: none !important;
+}
+
+header.sticky-nav li a:hover {
+    color: #0071BC;
+    border-bottom: 2px solid #0071BC !important;
+}
+
+header.sticky-nav nav ul li.app-store:before {
+    background: url("../img/personas/download-app-store.jpg") no-repeat center center;
+    -webkit-background-size: 120px 42px;
+         -o-background-size: 120px 42px;
+            background-size: 120px 42px;
+    content: "";
+    display: inline-block;
+    width: 120px;
+    height: 42px;
+    margin: 0;
+}
+/*  JUMPING LINK CSS FIX  */
+#content div#how-it-works:before, #content div#section-personas:before, #content div#section-testimonies:before, #content div#give-it-a-try:before {
+    display: block;
+    clear: both;
+    content: " "; 
+    margin-top: -110px; 
+    height: 110px; 
+    visibility: hidden;
+}
+/*  MAIN CONTENT  */
+#main {
+    background: #000;
+    -webkit-background-size: 100%;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: auto 100%;
+    width: 100%;
+    height: 566px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.carousel-holder {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hero-slide0 {
+    background: url("../img/landing/swell_hero_bg01.jpg");
+    -webkit-background-size: 100% auto;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+.hero-slide1 {
+    background: url("../img/landing/swell_hero_bg02.jpg");
+    -webkit-background-size: 100% auto;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 100% auto;
+    background-repeat: no-repeat;  
+}
+
+.hero-slide2 {
+    background: url("../img/landing/swell_hero_bg03.jpg");
+    -webkit-background-size: 100% auto;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+/*  Title Section  */
+#title {
+    width: 100%;
+    margin-top: 160px;
+}
+#title h1 {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    font-size: 52px;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 64px;
+    text-align: left;
+    width: 30%;
+    margin: 0 0 0.2em 10.5%;
+    opacity: 1;
+    position: absolute;
+    top: 160px;
+}
+#title h2 {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    color: #FFFFFF;
+    width: 25%;
+    display: block;
+    margin: 0 0 1em 10.5%;
+    opacity: 1;
+    text-align: left;
+    font-weight: 100;
+    font-size: 22px;
+    line-height: 34px;
+    position: absolute;
+    top: 300px;
+}
+#title a {
+    color: #29ABE2;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    text-decoration: none;
+    border: 1px solid #29ABE2;
+    width: 160px;
+    display: block;
+    padding: 0.75em 1.6em;
+    margin: 3em auto;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.mc-embed-signup {
+    position: absolute;
+    top: 360px;
+    margin: 0 0 0.2em 7.7%;
+}
+
+form {
+    margin: 1.5em 0 0 10.5%;
+}
+form input {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    margin-right: 0.5em;
+    padding: 0.5em;
+    width: 330px;
+    text-align: center;
+}
+form button {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    color: #29ABE2;
+    padding: 0.5em 1em;
+    font-size: 20px;
+    background: none;
+    border: 1px solid #29ABE2;
+    width: 330px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+form button:hover {
+    color: #0071BC;
+    border-color: #0071BC;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+div.clear {
+    display: inline;
+    margin-top: 1.2em;
+}
+div.mc-field-group {
+    margin-bottom: 0.85em;
+}
+#title a:hover {
+    color: #A7EAFC;
+    border-color: #A7EAFC;
+}
+#title img {
+    width: 318px;
+    margin: 0 auto 0.75em auto;
+    padding: 0 auto;
+    display: block;
+    position: absolute;
+    right: 11%;
+    bottom: -0.8em;
+}
+#slides img {
+    z-index: 1;
+}
+#slides img.active {
+    z-index: 3;
+}
+/*  MAIN CONTENT  */
+#content {
+    width: 100%;
+    position: absolute;
+    top: 570px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    padding: 0 0 2em 0;
+    text-align: center;
+}
+#content div {
+    margin: 0 auto;
+    padding: 0 0 2em 0;
+}
+#content div table {
+    margin: 0 auto;
+}
+#content div h2 {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    color: #F7931E;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 1.5em auto 1em auto;
+    width: 66%;
+    display: inline-block;
+}
+#content div a {
+    text-decoration: none;
+}
+#content div p {
+    color: #666;
+    font-weight: 100;
+    font-size: 28px;
+    line-height: 33px;
+    margin-bottom: 1em;
+}
+
+/*  PERSONAS  */
+#content div.personas {
+    width: 100% !important;
+    margin: 3em auto;
+    padding: 0 20% 1em 20%;
+}
+#content div.personas h2 {
+    color: #00CA96;
+    margin-bottom: 0;    
+}
+
+#content div.personas p {
+    font-family: Georgia, serif;
+    font-size: 20px;
+    color: #333333;
+    font-weight: 100;
+    padding: 0 2em;
+}
+#content div.personas h3 {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    color: #29ABE2;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 2em;
+    margin-bottom: 1.5em;
+}
+
+#content div.personas ul {
+    list-style: none;
+    clear: both;
+    padding-left: 0;
+    margin-bottom: 2em;
+    overflow: auto;
+}
+
+#content div.personas ul li {
+    width: 49%;
+    display: inline;
+    float: left;
+    margin-right: 0.3em;
+    position: relative;
+    overflow: hidden;
+}
+
+#content div.personas ul li h4 {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #FFF;
+    font-weight: 400;
+    position: absolute;
+    top: 40%;
+    left: 27%;
+    margin: 0.5em auto 1.5em auto;
+    text-align: center;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.55);
+}
+
+#content div.personas ul li img {
+    position: relative;
+    width: 100%;
+    margin-right: 0.5em;
+    opacity: 0.85;
+}
+
+#content div.personas ul li img:hover {
+    opacity: 1;
+}
+
+/* Give it a Try! */
+div#how-it-works {
+    width: 57% !important;
+}
+div.task-try {
+    width: 90% !important;
+    padding: 0 !important;
+    margin: 0 auto 5em auto !important;
+    background: url("../img/landing/swell-experts-characters.png") 50% 70% no-repeat;
+    -webkit-background-size: 80%;
+    -o-background-size: 80%;
+    background-size: 80%;
+}
+
+div.task-try form {
+    margin-left: 0;
+}
+div.task-try h2 {
+    width: 100% !important;
+    margin: 0 0 1em 0 !important;
+    text-align: center;
+}
+div.task-input {
+    background: #F2F2F2;
+    border: 1px solid #4D4D4D;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    padding: 1em 2em !important;
+    width: 460px !important;
+    height: 460px;
+    overflow: auto; 
+}
+div.task-input h3 {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    color: #333333;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 1em;
+    line-height: 30px;
+}
+div.task-input h4 {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 0.75em;
+    color: #4D4D4D;
+}
+div.task-input p {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    text-align: center;
+    font-size: 19px !important;
+    line-height: 24px !important;
+    font-weight: 100;
+}
+div.task-input input {
+    margin: 0 0 1.5em 0;
+    display: block;
+    width: 100% !important;
+    text-align: left;
+}
+div.task-input input.error {
+    border: 2px solid #FF1D25;
+}
+div.task-input input.error:after {
+    content: "*invalid entry";
+    display: block;
+    color: #FF1D25;
+    background: red;
+    width: 100px;
+    height: 30px;
+}
+div.task-input button {
+    width: 100%;
+    height: 50px;
+    background-color: #29ABE2;
+    border: none;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 1em;
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #FFF;
+}
+div.task-input button:hover {
+    background-color: #0071BC;
+}
+/*  Image List  */
+#content div .image-list li {
+    display: block;
+    width: 100%;
+    clear: both;
+    overflow: hidden;
+    text-align: left;
+    margin-bottom: 3em;
+}
+#content div .image-list li img {
+    width: 50%;
+    float: left;
+    margin: 0 1.5em 1em 0;
+    clear: right;
+}
+#content div .image-list li img.image-step3 {
+    display: none;
+}
+#content div .image-list li img.right {
+    float: right;
+    margin: 0 0 2em 1.5em;
+}
+#content div .image-list li h3 {
+    color: #B3B3B3;
+    font-size: 29px;
+    font-weight: 500;
+    text-align: left;
+    margin: 3em 0 1em 0;
+    padding: 0.5em 0.9em;
+    border-radius: 40px;
+    -webkit-border-radius: 40px;
+    border: 1px solid #B3B3B3;
+    display: inline-block;
+}
+#content div .image-list li h4 {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    color: #333333;
+    font-size: 28px;
+    font-weight: 500;
+    text-align: left;
+    margin: 0 0 0.5em 0;
+    padding: 0;
+}
+#content div .image-list li p {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    text-align: left;
+    font-size: 19px;
+    font-weight: 100;
+    color: #4D4D4D;
+    margin: 0 0 2.75em 0;
+}
+#content div .image-list li #preview-container {
+    position: relative;
+    width: 360px;
+    height: 670px;
+    background: url("../img/landing/swell_step03_iphone-empty.png") top left no-repeat;
+    background-size: 329px;
+    padding-top: 73px;
+    float: left;
+}
+#content div .image-list li #preview-container .reco-container {
+    width: 276px;
+    height: 489px;
+    margin: 10px 0 0 29px;
+    overflow: hidden;
+    -ms-overflow-y: scroll;
+    overflow-y: scroll;
+}
+#content div .image-list li #preview-container .tooltip img {
+    margin-left: 296px;
+    margin-top: -180px;
+    overflow-x: visible;
+    height: 67px;
+    width: 218px;
+    z-index: 1;
+}
+#content div .image-list li #preview-container .reco-container img {
+    width: 100%;
+    height: auto;
+    margin-bottom: -2em;
+    padding-bottom: 0;
+}
+#content div .image-list #navbar-container {
+    margin-left: 35px;
+    margin-top: -60px;
+    z-index: 10;
+}
+#content div .image-list li #navbar {
+    margin: 1em 0 0 3.8em;
+    width: 200px;
+    vertical-align: middle;
+}
+#content div .image-list li #navbar img {
+    width: 20px;
+    margin-right: 0.5em;
+    vertical-align: top;
+}
+#content div .image-list li #navbar img#left-arrow,
+#content div .image-list li #navbar img#right-arrow {
+    margin-top: 3px;
+}
+div#section-testimonies {
+    width: 60% !important;
+}
+ul.testimonies {
+    clear: both;
+    padding-left: 0;
+}
+ul.testimonies li {
+    margin-bottom: 6em;
+    overflow: auto;
+    list-style-type: none;
+    clear: both;
+}
+div ul.testimonies li img {
+    float: right;
+    width: 25%;
+    margin: 0 0 0 1em;
+}
+ul.testimonies li blockquote {
+    font-family: Georgia, serif;
+    color: #808080;
+    font-size: 28px;
+    font-weight: 400;
+    text-align: left;
+    line-height: 34px;
+    margin: 0 0 0.4em 0;
+    padding: 0;
+}
+ul.testimonies li p {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    text-align: left;
+    font-size: 17px !important;
+    font-weight: 100;
+    color: #4D4D4D;
+    margin-bottom: 2.75em;
+}
+ul.testimonies li.right blockquote,
+ul.testimonies li.right p {
+    text-align: right;
+}
+div ul.testimonies li.right img {
+    float: left;
+    margin: 0 1em 0 0;
+}
+/*  FOOTER  */
+footer {
+    background: #333;
+    display: block;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 2em 0;
+    z-index: 1;
+    margin: 0 0 -4em 0;
+}
+footer div.download-button a img {
+    width: 230px;
+    margin: 0.5em auto;
+}
+footer h3 {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+    width: 50%;
+    margin: 1em auto 0.3em auto;
+    line-height: 28px;
+}
+footer form {
+    margin-left: 0 !important;
+}
+footer form div.mc-field-group {
+    margin-bottom: 0.75em !important;
+    padding: 0 !important;
+}
+footer form div.mc-field-group input {
+    margin-right: 0;
+}
+footer ul {
+    padding-left: 0;
+    margin: 0 0 2em 0;
+}
+
+footer ul a {
+    text-decoration: none;
+    color: #D3D6DB;
+}
+
+footer ul a:hover {
+    color: #FFF;
+}
+
+footer ul li {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    display: inline;
+    margin: 0.7em;
+}

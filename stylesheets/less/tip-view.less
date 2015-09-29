@@ -1,0 +1,247 @@
+@import "assets/stylesheets/less/reset";
+@import "assets/stylesheets/less/react-image-gallery";
+@import "assets/stylesheets/less/tip-view-mobile";
+
+body {
+  text-align:center;
+}
+
+.header {
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 7px;
+  background: url("/img/swell-gradient.svg") center center;
+  background-size: cover;
+}
+
+img#swell_logo {
+  width:60px;
+  margin-top:30px;
+}
+
+div#header {
+  position:relative;
+  background:#FFF;
+  margin-top:20px;
+  left:50%;
+  width: 100%;
+  max-width:600px;
+  transform: translatex(-50%);
+  -webkit-transform: translatex(-50%);
+  -moz-transform: translatex(-50%);
+  -ms-transform: translatex(-50%);
+  padding-top:5px;
+  padding-bottom:10px;
+  /*height:100px; */
+  border-bottom:1px solid #CCC;
+  z-index:9999;
+}
+
+
+div#header h1 {
+  font-size:26px;
+  padding: 0 30px;
+  margin:0 0 25px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* "fixed-header" class added to header to make it fixed when scrolling down */
+div#header.fixed-header {
+  position:fixed;
+  margin-top:0;
+  top:0;
+  /*height:75px;*/
+  -webkit-transition: height 0.3s;
+  -moz-transition: height 0.3s;
+  -ms-transition: height 0.3s;
+  -o-transition: height 0.3s;
+  transition: height 0.3s;
+}
+
+div#header.fixed-header h1 {
+  font-size:18px;
+  margin-bottom:20px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+/* End "fixed-header" */
+
+#header:before {
+  content: "";
+  position: absolute;
+  border-width: 11px;
+  border-style: solid solid none solid;
+  border-color: #CCC transparent;
+  bottom: -11px;
+  left: 50%;
+  transform: translatex(-50%);
+  -webkit-transform: translatex(-50%);
+  -moz-transform: translatex(-50%);
+  -ms-transform: translatex(-50%);
+}
+
+#header:after {
+  content: "";
+  position: absolute;
+  border-width: 10px;
+  border-style: solid solid none solid;
+  border-color: #FFF transparent;
+  bottom: -10px;
+  left: 50%;
+  transform: translatex(-50%);
+  -webkit-transform: translatex(-50%);
+  -moz-transform: translatex(-50%);
+  -ms-transform: translatex(-50%);
+}
+
+.main-container {
+  padding-top: 1em;
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: left;
+}
+
+.image-gallery-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h5#framing:before {
+  content: "“";
+}
+
+h5#framing:after {
+  content: "“";
+}
+
+.framing {
+  width: 95%;
+  margin: 0.5em auto;
+  background: #FFFCD5;
+  border: 1px solid #C6B800;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 100;
+  padding: 1em;
+  -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.24);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.24);
+}
+.task-description {
+  width: 609px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 1.8em;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.task-description:before {
+  content: "“";
+}
+
+.task-description:after {
+  content: "”";
+}
+
+.description-divider {
+  background: url("/img/tip-description-top-divider.svg");
+  width: 609px;
+  height: 11px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heading {
+  font-family: "Open Sans", Helvetica;
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+.description-container {
+  margin-top: 30px;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  color: #333;
+  padding-bottom: 3em;
+}
+
+.rating-container {
+  overflow: auto;
+  margin-bottom: 0.5em;
+}
+
+.product-reco-rating {
+  width: 23%;
+  margin: 0.5em 0 0 0em;
+  float: left;
+}
+
+.price-view {
+  color: #80D766;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.shipping-view {
+  float: right;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.reco-reviews {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 100;
+  color: #979797;
+  float: left;
+  margin: 0.75em 0 0 0.5em;
+}
+
+.buy-button {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  color: #FFF;
+  border: none;
+  padding: 1em;
+  background-color: #4A90E2;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  clear: both;
+  cursor: pointer;
+  margin: 1em auto 0 auto;
+  width: 260px;
+  display: block;
+}
+
+.tip-view-container {
+  padding-bottom: 100px;
+}
+
+.guarantee-heading {
+  font-family: "Open Sans", Helvetica;
+  margin-top: 0px;
+  font-size: 16px;
+}
+
+.guarantee-body {
+  margin-top: 10px;
+  font-family: "Open Sans", Helvetica;
+  font-size: 14px;
+  color: #333;
+  padding-bottom: 3em;
+}

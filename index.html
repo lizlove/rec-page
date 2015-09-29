@@ -1,0 +1,545 @@
+<html>
+<head>
+  <title>Swell | Get a stroller for under $300</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta name="apple-itunes-app" content="app-id=921770935, app-argument=livenotes://restart" />
+  <link rel="stylesheet" href="stylesheets/style-publictask.css" media="screen"/>
+  <link rel="stylesheet" href="stylesheets/style-mobile.css" media="screen"/>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="fonts/fontello/css/fontello.css" media="screen"/>
+
+  <script src="js/jquery.min.js"></script>
+  <!--
+    <script language="Javascript">
+        var iosUrl = 'livenotes://user/1003351/tasklist/249';
+    </script>
+    <script src="/js/redirect.js"></script>
+    -->
+  <script>
+    // Sticks and shrinks the header when scrolling down.
+    function sticky () {
+      var headerHeight = $("header").height() + 10 + 40;
+      if ($(window).scrollTop() >= headerHeight) {
+        $("#fixed-title-header").addClass("toggle-slide");
+        setTimeout(function(){
+          $("#fixed-title-header").css("overflow", "visible");
+        }, 300);
+      } else {
+        $("#fixed-title-header").css("overflow", "hidden").removeClass("toggle-slide");
+      }
+    }
+    scrollIntervalID = setInterval(sticky, 10);
+
+    // Checks if a form has any active input in order to activate Submit btn.
+    function isQuestionActive(form){
+      var index = 0;
+      // checkboxes:
+      form.find("input").each(function(){
+        if ($(this).attr("checked")) {
+          index++;
+        }
+      });
+      //textareas:
+      form.find("textarea").each(function(){
+        if($(this).val() != "") {
+          index++;
+        }
+      });
+      if (index > 0) return true;
+    }
+
+    function resize_freeForm(target){
+      var realHeight = $(target).contents().find("body").height();
+      $(target).height(realHeight);
+    }
+
+    function resize_youtube(target){
+      var height = $(target).attr("height");
+      var width = $(target).attr("width");
+      var ratio = width/height;
+      var newHeight = $(target).width() / ratio;
+      $(target).height(newHeight);
+    }
+
+    // On mobiles, when switching orientation, fix height issues:
+    window.addEventListener("orientationchange", function() {
+      resize_freeForm($(".freeformSection iframe"));
+      resize_youtube($(".mediaSection iframe"));
+    }, false);
+
+    $(function(){
+      // When pressing enter on "other" input, make sure the form doesn't get submitted.
+      $(".other form input.inputOther").keypress(function(event) {
+        if (event.keyCode == 13) {
+          event.preventDefault();
+        }
+      });
+
+      // When checking or unchecking the boxes, make the actual input "checked".
+      $("input[type='checkbox']").change(function(){
+        if ($(this).prop("checked") == false) {
+          $(this).attr("checked", false);
+        } else {
+          $(this).attr("checked", true);
+        }
+      });
+
+      // For "Other" checkbox input, when pressing "enter":
+      $(".inputOther").keydown(function(event){
+        if (event.keyCode == 13) { // When pressing "Enter":
+          var checkbox = $(this).siblings("input[type='checkbox']");
+          var label = $(this).siblings("label");
+          if (this.value == ""){ // If I delete what I wrote in the input...
+            checkbox.val(""); // ... Remove the value in the sibling checkbox input...
+            if (checkbox.prop("checked") == true) { // If the checked box is already checked...
+              label.click();  //...uncheck it.
+            }
+          } else { // Upon entering some text...
+            checkbox.val(this.value); //... and make my entry the new value for the parent checkbox
+            if (checkbox.prop("checked") == false) { // If the checkbox is not checked already...
+              label.click(); // ...make it checked
+            }
+          }
+        }
+      });
+
+      // Enable/disable "submit" button on form change (when input is active or not).
+      $("form").bind("change input propertychange", function(){
+        var form = $(this);
+        var button = form.find(".button");
+        if (isQuestionActive(form)) {
+          button.removeClass("disabled");
+          button.removeAttr("disabled");
+        } else {
+          button.addClass("disabled");
+          button.attr("disabled", "disabled");
+        }
+      });
+
+      $("form").bind("submit", function(e){
+        e.preventDefault();
+        console.log(e.target.id);
+        var errorCount = 0;
+        var data = $("#"+e.target.id).serializeArray();
+        if (errorCount < 1) { // If there are no errors...
+          var formObj = {};
+
+          $.each(data, function (i, input) {
+            if(input.name.indexOf('[]') !== -1) {
+              if(!formObj[input.name]) {
+                formObj[input.name] = [];
+              }
+              formObj[input.name].push(input.value);
+            } else {
+              formObj[input.name] = input.value;
+            }
+          });
+          var url = "/user/1003351/tasklist/249/answers";
+          $.ajax({
+            "type": "POST",
+            "url": url,
+            "data": {
+              "answers": formObj
+            },
+            success: function( data, textStatus, jqXHR ) {
+              console.log("success: "+textStatus);
+              $("#"+e.target.id).parent().fadeOut();
+            },
+            error: function( jqXHR, textStatus, errorThrown ) {
+              window.alert( textStatus );
+            }
+          });
+        };
+      });
+
+      // Forms with strict mode (only yes or no): uncheck other boxes when checking a box.
+      $(".bool form input").change(function(){
+        if ($(this).attr("checked")) {
+          $(this).parent().siblings().children("input").removeAttr("checked");
+        }
+      });
+
+      // free-form iframe hacks:
+      $(".freeformSection iframe").load(function() {
+        $(this).contents().find("body").css("overflow", "hidden");
+
+        $(this).contents().find("#container").css({
+          "padding" : "0 15px 15px",
+          "font-family" : "Open Sans, Helvetica, Arial, sans-serif",
+          "font-size"   : "15px",
+          "font-weight"   : "100",
+        });
+
+        $(this).contents().find("#container p").css({
+          "margin"  : "15px 0"
+        });
+
+        $(this).contents().find("#container p img").css({
+          "margin"  : "0 auto 15px",
+          "width"   : "auto",
+          "max-width"   : "100%",
+          "height"  : "auto",
+          "max-height"  : "450px",
+          "display"   : "block"
+        });
+
+        $(this).contents().find("#container ul, #container em").css({
+          "padding-left"  : "0",
+          "color"   : "#58585B",
+          "line-height"   : "21px",
+          "word-wrap"   : "break-word",
+          "margin"  : "15px 0"
+        });
+
+        $(this).contents().find("#container ul, #container ol").css({
+          "margin"  : "15px 0"
+        });
+
+        $(this).contents().find("#container ul").each(function(){
+          if ($(this).css("list-style-type") != "none") {
+            $(this).css("padding-left", "20px");
+          }
+        });
+
+        $(this).contents().find("#container ol").css({
+          "padding-left"  : "25px"
+        });
+
+        resize_freeForm(this);
+
+      });
+
+      // Resizing youtube iframes. Not sure if it's needed.
+      $(".mediaSection iframe").load(function() {
+        if ($(this).attr("src").indexOf("youtube") > 0) {
+          resize_youtube(this);
+        }
+      });
+
+      $("#openApp").click(function(event) {
+        $.ajax({
+          url: '/w/44dc760e8df6e671752e3b101de0/track/Web_App_Click',
+          type: 'POST',
+          success: function(response) {
+            console.log(response);
+          }
+        });
+      });
+
+      $(".viewBtn").click(function(event) {
+        var recoId = this.id.split('-')[1];
+        $.ajax({
+          url: '/w/44dc760e8df6e671752e3b101de0/track/Web_Reco_Click',
+          type: 'POST',
+          data: {
+            "recoId": recoId
+          },
+          success: function(response) {
+            console.log(response);
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+<header>
+  <img id="swell_logo" src="img/swell-symbol.png" alt="Swell Logo" />
+  <div id="title-header">
+    <h1>"Get a stroller for under $300"</h1>
+    <a class="button" id="openApp" href="http://deeplink.me/tryswell.com/" target="_blank">Open in the Swell App</a>
+    <div class="triangle-with-shadow"></div>
+  </div>
+</header>
+<div id="fixed-title-header">
+  <h1>"Get a stroller for under $300"</h1>
+  <div class="triangle-with-shadow"></div>
+</div>
+<div id="contents">
+  <!-- Whatever variables I coudn't put together I inserted them inside **, as in **VARIABLE** -->
+  <div id="introMessage">Here are our top three picks in your price range</div>
+  
+
+    
+    <div class="recoBox">
+      
+      
+      
+      
+      
+      <div class="freeformSection">
+        <iframe srcDoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;style&gt;html,body{font-family:sans-serif;-webkit-text-size-adjust:100%}body{background-color:#fff;margin:0;word-wrap:break-word}#container{padding-right:10px;padding-left:10px;padding-bottom:10px}h1{font-family:&quot;Open Sans&quot;,Helvetica,Arial,sans-serif;font-size:17px;font-weight:600}h2{font-family:&quot;Open Sans&quot;,Helvetica,Arial,sans-serif;font-size:15px;font-weight:600}img{width:100%;margin:1em 0}p,ol,ul{font-family:&quot;Open Sans&quot;,Helvetica,Arial,sans-serif;font-size:15px;font-weight:100;color:#58585B;line-height:1.4em}p a{text-decoration:none;color:#4A90E2}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div id=&quot;container&quot;&gt;&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;http://i.imgur.com/FopjdUI.jpg&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+      </div>
+      
+      
+      </div>
+      
+    
+
+    
+    <div class="recoBox">
+      
+      
+      
+      
+      
+      <div class="freeformSection">
+        <iframe srcDoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;style&gt;html,body{font-family:sans-serif;-webkit-text-size-adjust:100%}body{background-color:#fff;margin:0;word-wrap:break-word}#container{padding-right:10px;padding-left:10px;padding-bottom:10px}h1{font-family:&quot;Open Sans&quot;,Helvetica,Arial,sans-serif;font-size:17px;font-weight:600}h2{font-family:&quot;Open Sans&quot;,Helvetica,Arial,sans-serif;font-size:15px;font-weight:600}img{width:100%;margin:1em 0}p,ol,ul{font-family:&quot;Open Sans&quot;,Helvetica,Arial,sans-serif;font-size:15px;font-weight:100;color:#58585B;line-height:1.4em}p a{text-decoration:none;color:#4A90E2}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div id=&quot;container&quot;&gt;&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;http://i.imgur.com/7q3St1I.jpg&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+      </div>
+      
+      
+      </div>
+      
+    
+
+    
+    <div class="recoBox">
+      
+      
+      
+      
+      
+      <div class="freeformSection">
+        <iframe srcDoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;style&gt;html,body{font-family:sans-serif;-webkit-text-size-adjust:100%}body{background-color:#fff;margin:0;word-wrap:break-word}#container{padding-right:10px;padding-left:10px;padding-bottom:10px}h1{font-family:&quot;Open Sans&quot;,Helvetica,Arial,sans-serif;font-size:17px;font-weight:600}h2{font-family:&quot;Open Sans&quot;,Helvetica,Arial,sans-serif;font-size:15px;font-weight:600}img{width:100%;margin:1em 0}p,ol,ul{font-family:&quot;Open Sans&quot;,Helvetica,Arial,sans-serif;font-size:15px;font-weight:100;color:#58585B;line-height:1.4em}p a{text-decoration:none;color:#4A90E2}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div id=&quot;container&quot;&gt;&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;http://i.imgur.com/WssSiQd.jpg&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+      </div>
+      
+      
+      </div>
+      
+    
+
+    
+    <div class="recoBox">
+      
+      
+      
+      
+      
+      <div class="freeformSection">
+        <iframe srcDoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;style&gt;html,body{font-family:sans-serif;-webkit-text-size-adjust:100%}body{background-color:#fff;margin:0;word-wrap:break-word}#container{padding-right:10px;padding-left:10px;padding-bottom:10px}h1{font-family:&quot;Open Sans&quot;,Helvetica,Arial,sans-serif;font-size:17px;font-weight:600}h2{font-family:&quot;Open Sans&quot;,Helvetica,Arial,sans-serif;font-size:15px;font-weight:600}img{width:100%;margin:1em 0}p,ol,ul{font-family:&quot;Open Sans&quot;,Helvetica,Arial,sans-serif;font-size:15px;font-weight:100;color:#58585B;line-height:1.4em}p a{text-decoration:none;color:#4A90E2}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div id=&quot;container&quot;&gt;&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;http://i.imgur.com/4fQjCSB.jpg&quot; /&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+      </div>
+      
+      
+      </div>
+      
+    
+
+    
+    <div class="recoBox">
+      
+      <div class='commentSection'>
+        <blockquote>The Britax B-Agile is an incredible compact and lightweight stroller that offers a premium experience at an affordable price point.  It won best in class on multiple websites for a low budget stroller, for those reasons, it is our number one pick for you.</blockquote>
+      </div>
+      
+       <!-- Media = youtube, picture, maps etc. -->
+      <div class="mediaSection">
+        
+        <img src="http://ecx.images-amazon.com/images/I/41izoKxRySL.jpg" alt="Britax 2014 B-Agile Stroller, Sandstone" />
+        
+      </div>
+      
+      
+      <div class="titlesSection">
+         <!-- Not sure if that condition is relevant -->
+          
+          <a class="viewBtn" href='http://www.amazon.com/gp/product/B00HVAJC06?tag=livenotes-20' id="reco-1" target="_blank">View</a>
+          
+        
+        <h3>Britax 2014 B-Agile Stroller, Sandstone</h3>
+      </div>
+      
+      
+      <div class="priceSection">$195.00</div>
+      
+      
+      
+      <div class="sourceSection">amazon</div><!-- Do we want to make this a link? -->
+      
+      </div>
+      
+    
+
+    
+    <div class="recoBox">
+      
+      <div class='commentSection'>
+        <blockquote>Check out an unbiased review of the Britax B-Agile Stroller</blockquote>
+      </div>
+      
+       <!-- Media = youtube, picture, maps etc. -->
+      <div class="mediaSection">
+        
+          
+          <iframe width="300" height="169" src="//www.youtube.com/embed/VB7sAuPi-EM?controls=0&amp;amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+          
+        
+      </div>
+      
+      
+      <div class="titlesSection">
+        
+        <h3>Britax B-Agile 4 Review by Baby Gizmo</h3>
+      </div>
+      
+      
+      
+      
+      <div class="sourceSection">YouTube</div><!-- Do we want to make this a link? -->
+      
+      </div>
+      
+    
+
+    
+    <div class="recoBox">
+      
+      <div class='commentSection'>
+        <blockquote>Packed with features that make it in an incredibly safe and powerful stroller, the City Mini is our second choice for you.</blockquote>
+      </div>
+      
+       <!-- Media = youtube, picture, maps etc. -->
+      <div class="mediaSection">
+        
+        <img src="http://www.babyjogger.com/image/cache/data/products/strollers/cityminigtsingle/city-mini-gt-single-black-black-560x560.jpg" alt="City Mini" />
+        
+      </div>
+      
+      
+      <div class="titlesSection">
+         <!-- Not sure if that condition is relevant -->
+          
+          <a class="viewBtn" href='http://www.amazon.com/Baby-Jogger-Stroller-Black-Frame/dp/B00G3XR7GS' id="reco-3" target="_blank">View</a>
+          
+        
+        <h3>City Mini</h3>
+      </div>
+      
+      
+      <div class="priceSection">$243.47</div>
+      
+      
+      
+      <div class="sourceSection">Amazon</div><!-- Do we want to make this a link? -->
+      
+      </div>
+      
+    
+
+    
+    <div class="recoBox">
+      
+      <div class='commentSection'>
+        <blockquote>Check out a great review of this stroller</blockquote>
+      </div>
+      
+       <!-- Media = youtube, picture, maps etc. -->
+      <div class="mediaSection">
+        
+          
+          <iframe width="300" height="169" src="//www.youtube.com/embed/ewBJS6MveAg?controls=0&amp;amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+          
+        
+      </div>
+      
+      
+      <div class="titlesSection">
+        
+        <h3>Baby Jogger City Mini Stroller - an Urban Mommy Favorite!</h3>
+      </div>
+      
+      
+      
+      
+      <div class="sourceSection">YouTube</div><!-- Do we want to make this a link? -->
+      
+      </div>
+      
+    
+
+    
+    <div class="recoBox">
+      
+      <div class='commentSection'>
+        <blockquote>Number three is the Baby Jogger Versa.  It is designed with intentions of keeping a mothers peace of mind! A rear facing seat for your infant will allow to you to keep an eye on them at all times.</blockquote>
+      </div>
+      
+       <!-- Media = youtube, picture, maps etc. -->
+      <div class="mediaSection">
+        
+        <img src="http://ecx.images-amazon.com/images/I/81UfDoYzTaL._SY679_.jpg" alt="Baby Jogger 2012 City Versa Stroller" />
+        
+      </div>
+      
+      
+      <div class="titlesSection">
+         <!-- Not sure if that condition is relevant -->
+          
+          <a class="viewBtn" href='http://www.amazon.com/Baby-Jogger-Versa-Stroller-Green/dp/B008RR5YAE/?tag=lucslis-20#productDetails' id="reco-6" target="_blank">View</a>
+          
+        
+        <h3>Baby Jogger 2012 City Versa Stroller</h3>
+      </div>
+      
+      
+      <div class="priceSection">$229.99</div>
+      
+      
+      
+      <div class="sourceSection">Amazon</div><!-- Do we want to make this a link? -->
+      
+      </div>
+      
+    
+
+    
+    <div class="recoBox">
+      
+      <div class='commentSection'>
+        <blockquote>Check out what this stroller can do </blockquote>
+      </div>
+      
+       <!-- Media = youtube, picture, maps etc. -->
+      <div class="mediaSection">
+        
+          
+          <iframe width="300" height="169" src="//www.youtube.com/embed/WhwocYqKdIE?controls=0&amp;amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+          
+        
+      </div>
+      
+      
+      <div class="titlesSection">
+        
+        <h3>Baby Jogger City Versa Stroller Review</h3>
+      </div>
+      
+      
+      
+      
+      <div class="sourceSection">YouTube</div><!-- Do we want to make this a link? -->
+      
+      </div>
+      
+    
+</div>
+<footer>
+  <div class="footerContainer">
+    <ul class="footer-menu">
+      <li><a href="http://tryswell.com">Home</a></li>
+      <li><a href="mailto:support@simplelabsinc.com">Support</a></li>
+      <li><a href="http://tryswell.com">FAQ</a></li>
+      <li><a href="http://tryswell.com/about">About</a></li>
+    </ul>
+    <ul class="footer-social_menu">
+      <li><a href="https://www.facebook.com/tryswell" class="icon-facebook-squared" target="_blank"></a></li>
+      <li><a href="https://twitter.com/tryswell" class="icon-twitter" target="_blank"></a></li>
+    </ul>
+    <a class="app-store" href="http://www.bit.ly/TrySwellApp">Get App</a>
+  </div>
+</footer>
+</body>
+</html>
