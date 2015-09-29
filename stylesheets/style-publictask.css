@@ -508,6 +508,7 @@ header #title-header .button {
 #contents .recoBox .freeformSection {
   /*padding:15px 0;*/
 }
+
 #contents .recoBox .freeformSection iframe {
   overflow: visible;
 }
